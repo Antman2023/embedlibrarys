@@ -9,7 +9,7 @@ Lite message system
 - Declare a message struct for get message.
 - Use GetMessage() to get a message if possible.
 
-Example:
+###Example:
 
 	#include <message.h>
 	#define WM_SERIAL 0
