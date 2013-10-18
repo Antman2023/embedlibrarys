@@ -16,6 +16,6 @@ struct ring_messages
 
 void InitMessage(struct ring_messages *ring_messages);
 void SendMessage(struct ring_messages *ring_messages, char id, char param);
-struct message *GetMessage(struct ring_messages *ring_messages);
+char GetMessage(struct ring_messages *ring_messages, struct message *message);
 
 #endif

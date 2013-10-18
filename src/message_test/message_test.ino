@@ -7,21 +7,20 @@ void setup()
     Serial.begin(9600);
 }
 
-struct message *message;
+struct message message;
 void loop()
 {
     if (Serial.available())
     {
         SendMessage( &ring_messages, WM_SERIAL, Serial.read());
     }
-    message = GetMessage(&ring_messages);
-    if (message)
+    if (GetMessage(&ring_messages, &message))
     {
-        switch (message->id)
+        switch (message.id)
         {
         case WM_SERIAL:
             Serial.write("got a message");
-            Serial.write(message->param);
+            Serial.write(message.param);
             break;
         }
     }

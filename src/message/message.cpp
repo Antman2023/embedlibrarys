@@ -22,17 +22,16 @@ void SendMessage(struct ring_messages *ring_messages, char id, char param)
     }
 }
 
-struct message *GetMessage(struct ring_messages *ring_messages)
+char GetMessage(struct ring_messages *ring_messages, struct message *message)
 {
-    struct message *result;
     if (ring_messages->head == ring_messages->tail)
     {
         return 0;
     }
     else
     {
-        result = &ring_messages->message[ring_messages->tail];
+        *message = ring_messages->message[ring_messages->tail];
         ring_messages->tail = (ring_messages->tail + 1) % MESSAGE_SIZE;
-        return result;
+        return 1;
     }
 }
